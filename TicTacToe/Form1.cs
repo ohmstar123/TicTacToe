@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace TicTacToe
 {
-    public partial class MainScreen : Form
+    public partial class Form1 : Form
     {
-        public MainScreen()
+        public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            HomeScreen hs = new HomeScreen();
+            this.Controls.Add(hs);
+            hs.Location = new Point((this.ClientSize.Width - hs.Width) / 2, (this.Height - hs.Height) / 2);
         }
     }
 }
