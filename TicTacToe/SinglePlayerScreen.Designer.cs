@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.bottomBlackLabel = new System.Windows.Forms.Label();
             this.topBlackLabel = new System.Windows.Forms.Label();
             this.mainMenuButton = new System.Windows.Forms.Button();
@@ -40,13 +41,15 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.player2PointsLabel = new System.Windows.Forms.Label();
+            this.CPUPointsLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.player1PointsLabel = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
-            this.player2Label = new System.Windows.Forms.Label();
+            this.CPULabel = new System.Windows.Forms.Label();
             this.player1Label = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.CPUTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // bottomBlackLabel
@@ -76,6 +79,7 @@
             this.mainMenuButton.TabIndex = 39;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
+            this.mainMenuButton.Click += new System.EventHandler(this.MainMenu);
             // 
             // button9
             // 
@@ -88,6 +92,7 @@
             this.button9.TabIndex = 38;
             this.button9.Text = "?";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.PlayerClickButton);
             // 
             // button6
             // 
@@ -100,6 +105,7 @@
             this.button6.TabIndex = 37;
             this.button6.Text = "?";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.PlayerClickButton);
             // 
             // button8
             // 
@@ -112,6 +118,7 @@
             this.button8.TabIndex = 36;
             this.button8.Text = "?";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.PlayerClickButton);
             // 
             // button5
             // 
@@ -124,6 +131,7 @@
             this.button5.TabIndex = 35;
             this.button5.Text = "?";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.PlayerClickButton);
             // 
             // button7
             // 
@@ -136,6 +144,7 @@
             this.button7.TabIndex = 34;
             this.button7.Text = "?";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.PlayerClickButton);
             // 
             // button4
             // 
@@ -148,6 +157,7 @@
             this.button4.TabIndex = 33;
             this.button4.Text = "?";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.PlayerClickButton);
             // 
             // button3
             // 
@@ -160,6 +170,7 @@
             this.button3.TabIndex = 32;
             this.button3.Text = "?";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.PlayerClickButton);
             // 
             // button2
             // 
@@ -172,6 +183,7 @@
             this.button2.TabIndex = 31;
             this.button2.Text = "?";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.PlayerClickButton);
             // 
             // button1
             // 
@@ -185,17 +197,18 @@
             this.button1.TabIndex = 30;
             this.button1.Text = "?";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.PlayerClickButton);
             // 
-            // player2PointsLabel
+            // CPUPointsLabel
             // 
-            this.player2PointsLabel.AutoSize = true;
-            this.player2PointsLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25F);
-            this.player2PointsLabel.ForeColor = System.Drawing.Color.OliveDrab;
-            this.player2PointsLabel.Location = new System.Drawing.Point(1055, 491);
-            this.player2PointsLabel.Name = "player2PointsLabel";
-            this.player2PointsLabel.Size = new System.Drawing.Size(55, 58);
-            this.player2PointsLabel.TabIndex = 29;
-            this.player2PointsLabel.Text = "0";
+            this.CPUPointsLabel.AutoSize = true;
+            this.CPUPointsLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25F);
+            this.CPUPointsLabel.ForeColor = System.Drawing.Color.OliveDrab;
+            this.CPUPointsLabel.Location = new System.Drawing.Point(1055, 491);
+            this.CPUPointsLabel.Name = "CPUPointsLabel";
+            this.CPUPointsLabel.Size = new System.Drawing.Size(55, 58);
+            this.CPUPointsLabel.TabIndex = 29;
+            this.CPUPointsLabel.Text = "0";
             // 
             // label2
             // 
@@ -235,34 +248,53 @@
             this.resetButton.TabIndex = 25;
             this.resetButton.Text = "Reset Game";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.RestartGame);
             // 
-            // player2Label
+            // CPULabel
             // 
-            this.player2Label.AutoSize = true;
-            this.player2Label.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25F);
-            this.player2Label.ForeColor = System.Drawing.Color.OliveDrab;
-            this.player2Label.Location = new System.Drawing.Point(889, 411);
-            this.player2Label.Name = "player2Label";
-            this.player2Label.Size = new System.Drawing.Size(389, 58);
-            this.player2Label.TabIndex = 24;
-            this.player2Label.Text = "Player 2 Points";
+            this.CPULabel.AutoSize = true;
+            this.CPULabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25F);
+            this.CPULabel.ForeColor = System.Drawing.Color.OliveDrab;
+            this.CPULabel.Location = new System.Drawing.Point(934, 411);
+            this.CPULabel.Name = "CPULabel";
+            this.CPULabel.Size = new System.Drawing.Size(298, 58);
+            this.CPULabel.TabIndex = 24;
+            this.CPULabel.Text = "CPU Points";
             // 
             // player1Label
             // 
             this.player1Label.AutoSize = true;
             this.player1Label.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25F);
             this.player1Label.ForeColor = System.Drawing.Color.IndianRed;
-            this.player1Label.Location = new System.Drawing.Point(889, 148);
+            this.player1Label.Location = new System.Drawing.Point(910, 148);
             this.player1Label.Name = "player1Label";
-            this.player1Label.Size = new System.Drawing.Size(389, 58);
+            this.player1Label.Size = new System.Drawing.Size(346, 58);
             this.player1Label.TabIndex = 23;
-            this.player1Label.Text = "Player 1 Points";
+            this.player1Label.Text = "Player Points";
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.BackColor = System.Drawing.Color.Black;
+            this.titleLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
+            this.titleLabel.Location = new System.Drawing.Point(468, -3);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(414, 70);
+            this.titleLabel.TabIndex = 40;
+            this.titleLabel.Text = "Single Player";
+            // 
+            // CPUTimer
+            // 
+            this.CPUTimer.Interval = 1000;
+            this.CPUTimer.Tick += new System.EventHandler(this.CPUmove);
             // 
             // SinglePlayerScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.mainMenuButton);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button6);
@@ -273,12 +305,12 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.player2PointsLabel);
+            this.Controls.Add(this.CPUPointsLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.player1PointsLabel);
             this.Controls.Add(this.resetButton);
-            this.Controls.Add(this.player2Label);
+            this.Controls.Add(this.CPULabel);
             this.Controls.Add(this.player1Label);
             this.Controls.Add(this.bottomBlackLabel);
             this.Controls.Add(this.topBlackLabel);
@@ -303,12 +335,14 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label player2PointsLabel;
+        private System.Windows.Forms.Label CPUPointsLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label player1PointsLabel;
         private System.Windows.Forms.Button resetButton;
-        private System.Windows.Forms.Label player2Label;
+        private System.Windows.Forms.Label CPULabel;
         private System.Windows.Forms.Label player1Label;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Timer CPUTimer;
     }
 }

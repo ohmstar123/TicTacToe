@@ -37,6 +37,7 @@ namespace TicTacToe
 
             if (turnCounter % 2 == 0)
             {
+                turnLabel.Text = "Turn: Player 2 (O)";
                 player1 = Player.X;
                 button.Text = player1.ToString();
                 button.Enabled = false;
@@ -46,6 +47,7 @@ namespace TicTacToe
             }
             else
             {
+                turnLabel.Text = "Turn: Player 1 (X)";
                 player2 = Player.O;
                 button.Text = player2.ToString();
                 button.Enabled = false;

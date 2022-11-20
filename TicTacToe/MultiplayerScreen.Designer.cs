@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.bottomBlackLabel = new System.Windows.Forms.Label();
             this.topBlackLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
@@ -49,7 +48,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.mainMenuButton = new System.Windows.Forms.Button();
-            this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.turnLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bottomBlackLabel
@@ -284,15 +283,24 @@
             this.mainMenuButton.UseVisualStyleBackColor = true;
             this.mainMenuButton.Click += new System.EventHandler(this.MainMenu);
             // 
-            // GameTimer
+            // turnLabel
             // 
-            this.GameTimer.Interval = 1000;
+            this.turnLabel.AutoSize = true;
+            this.turnLabel.BackColor = System.Drawing.Color.Black;
+            this.turnLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F);
+            this.turnLabel.ForeColor = System.Drawing.Color.White;
+            this.turnLabel.Location = new System.Drawing.Point(410, 824);
+            this.turnLabel.Name = "turnLabel";
+            this.turnLabel.Size = new System.Drawing.Size(531, 70);
+            this.turnLabel.TabIndex = 23;
+            this.turnLabel.Text = "Turn: Player 1 (X)";
             // 
             // MultiplayerScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
+            this.Controls.Add(this.turnLabel);
             this.Controls.Add(this.mainMenuButton);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button6);
@@ -342,6 +350,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button mainMenuButton;
-        private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.Label turnLabel;
     }
 }
